@@ -1493,6 +1493,7 @@ def _process_metric_node(
                 manifest=manifest, current_project=current_project, metric=target_metric
             )
             metric.type_params.input_measures.extend(target_metric.type_params.input_measures)
+            metric.depends_on.add_node(target_metric.unique_id)
     else:
         assert_values_exhausted(metric.type)
 
